@@ -78,6 +78,18 @@ export default defineConfig({
                   ])
               ),
             
+            // Restaurant
+            S.listItem()
+              .title('Restaurant')
+              .child(
+                S.list()
+                  .title('Restaurant')
+                  .items([
+                    S.documentTypeListItem('restaurantGalleryImage').title('Gallery Images'),
+                    // Add other restaurant-related document types here in the future
+                  ])
+              ),
+            
             // Shop and media
             S.listItem()
               .title('Shop & Media')

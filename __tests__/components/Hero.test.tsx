@@ -32,19 +32,26 @@ jest.mock('next/link', () => ({
 describe('Hero Component', () => {
   const mockHeroProps = {
     hero: {
+      // Add required Sanity document fields
+      _id: 'mock-hero-id',
+      _type: 'homeHero' as 'homeHero',
+      _createdAt: '2023-01-01T00:00:00Z',
+      _updatedAt: '2023-01-01T00:00:00Z',
+      _rev: 'mock-rev-id',
+      // Original hero data
       headline: 'Welcome to Sam\'s Farm',
       subHeadline: 'Experience farm-to-table dining in a rustic setting',
-      overlayColor: 'dark',
+      overlayColor: 'dark' as 'dark',
       overlayOpacity: 50,
       heroMedia: {
-        type: 'image',
-        image: { asset: { _ref: 'image-ref' } },
+        type: 'image' as 'image',
+        image: { _type: 'image' as 'image', asset: { _ref: 'image-ref', _type: 'reference' as 'reference' } },
         alt: 'Farm landscape'
       },
       ctaButton: {
         label: 'Book a Table',
         href: '/restaurant',
-        style: 'primary'
+        style: 'primary' as 'primary'
       },
       secondaryCta: {
         label: 'Explore the Farm',

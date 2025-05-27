@@ -10,6 +10,7 @@ jest.mock('next/image', () => ({
     return <img {...props} />
   },
 }))
+// Type assertion not needed, mock function is properly typed
 
 // Mock useRouter
 jest.mock('next/navigation', () => ({
@@ -23,8 +24,9 @@ jest.mock('next/navigation', () => ({
 describe('Header Component', () => {
   it('renders the Sam Farm logo', () => {
     render(<Header />)
-    const logoElement = screen.getByAltText(/sam farm/i)
-    expect(logoElement).toBeInTheDocument()
+    const logoElements = screen.getAllByAltText(/Sam Farm Logo/i)
+    // Check that at least one logo is rendered
+    expect(logoElements.length).toBeGreaterThan(0)
   })
   
   it('displays main navigation items', () => {

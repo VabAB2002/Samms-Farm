@@ -3,20 +3,35 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { IoLeaf } from 'react-icons/io5';
 import { FaUtensils, FaCalendarAlt } from 'react-icons/fa';
-import { getRestaurantMedia } from '@/lib/sanity/api/restaurant';
+import { getRestaurantMedia, getRestaurantGalleryImages } from '@/lib/sanity/api/restaurant';
 import SanityImage from '@/components/media/SanityImage';
 import SanityVideo from '@/components/media/SanityVideo';
 import MediaGallery from '@/components/media/MediaGallery';
+import Gallery from '@/components/Gallery';
 import { MediaAsset } from '@/lib/sanity/api/media';
+import { urlFor } from '@/lib/sanity/client';
+import Head from 'next/head';
 
 export const metadata = {
   title: "Samm's Restaurant",
-  description: "Farm-to-table café that serves fresh, wholesome meals with warmth and connection."
+  description: "Farm-to-table café that serves fresh, wholesome meals with warmth and connection.",
+  // Adding Sanity CDN preconnect
+  icons: {
+    other: [
+      {
+        rel: 'preconnect',
+        url: 'https://cdn.sanity.io'
+      }
+    ]
+  }
 };
 
 export default async function RestaurantPage() {
   // Fetch media assets from Sanity
   const mediaAssets = await getRestaurantMedia();
+  
+  // Fetch restaurant gallery images
+  const restaurantGalleryImages = await getRestaurantGalleryImages();
   
   // Find specific media assets by type
   const findMediaByType = (type: string): MediaAsset | undefined => {
@@ -24,6 +39,7 @@ export default async function RestaurantPage() {
   };
   
   // Get specific media assets
+  const heroVideo = findMediaByType('heroVideo');
   const heroImage = findMediaByType('heroImage');
   const interiorImage = findMediaByType('galleryImage');
   const exteriorImage = mediaAssets.find(asset => 
@@ -38,9 +54,23 @@ export default async function RestaurantPage() {
       <Header />
       <main className="py-12 md:py-20">
         <section className="container mx-auto px-4">
-          {/* Hero section with editorial photography */}
+          {/* Hero section with video background */}
           <div className="relative h-[70vh] mb-20 rounded-lg overflow-hidden shadow-rustic-lg">
-            {heroImage ? (
+            {heroVideo ? (
+              <div className="absolute inset-0 w-full h-full">
+                <SanityVideo 
+                  video={heroVideo.video}
+                  videoUrl={heroVideo.videoUrl}
+                  title={heroVideo.title || "Farm to table experience"}
+                  poster={heroVideo.image}
+                  autoPlay={true}
+                  loop={true}
+                  muted={true}
+                  controls={false}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            ) : heroImage ? (
               <SanityImage 
                 image={heroImage.image} 
                 alt={heroImage.altText || "Farm to table experience"} 
@@ -48,9 +78,13 @@ export default async function RestaurantPage() {
                 className="w-full h-full object-cover"
               />
             ) : (
-              <img 
-                src="/images/hero-farm-table.jpg" 
-                alt="Farm to table experience" 
+              <video 
+                src="/videos/restaurant-bg.mp4" 
+
+                autoPlay
+                loop
+                muted
+                playsInline
                 className="w-full h-full object-cover"
               />
             )}
@@ -155,6 +189,21 @@ export default async function RestaurantPage() {
             </div>
           </div>
           </div>
+          
+          {/* Gallery section */}
+          <section id="gallery" className="py-16 bg-neutral-50 mb-20">
+            <div className="container mx-auto px-4">
+              <h2 className="text-3xl font-display text-brown-700 mb-3 text-center">Gallery</h2>
+              <p className="text-brown-600 text-center mb-6 italic">Experience our farm-to-table ambiance</p>
+              <div className="w-24 h-[2px] bg-terracotta-500 mx-auto mb-8" />
+              
+              {restaurantGalleryImages.length > 0 ? (
+                <Gallery photos={restaurantGalleryImages} />
+              ) : (
+                <p className="text-center text-brown-600">Gallery images coming soon...</p>
+              )}
+            </div>
+          </section>
           
           <div id="reservation" className="mb-20">
             <h2 className="text-3xl font-display text-brown-700 mb-3 text-center">Hours & Location</h2>

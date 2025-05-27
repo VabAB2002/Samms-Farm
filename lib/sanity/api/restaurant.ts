@@ -1,5 +1,14 @@
-import { safeFetch } from '../client';
+import { safeFetch, sanityClient } from '../client';
 import { getMediaAssetsByCategory } from './media';
+
+// Types for restaurant gallery images
+export type RestaurantGalleryImage = {
+  _id: string;
+  image: any;
+  alt: string;
+  order: number;
+  caption?: string;
+};
 
 // Get all restaurant info
 export async function getRestaurantInfo() {
@@ -23,6 +32,32 @@ export async function getRestaurantInfo() {
 // Get restaurant media assets
 export async function getRestaurantMedia() {
   return getMediaAssetsByCategory('restaurant');
+}
+
+// Get restaurant gallery images
+export async function getRestaurantGalleryImages(): Promise<RestaurantGalleryImage[]> {
+  // Simplified query to test basic functionality
+  const query = `
+    *[_type == "restaurantGalleryImage"] {
+      _id,
+      image,
+      alt,
+      order,
+      caption
+    }
+  `;
+  
+  try {
+    console.log('Fetching restaurant gallery images with query:', query);
+    const result = await sanityClient.fetch(query); // Using direct client instead of safeFetch
+    console.log('Restaurant gallery images result:', result);
+    return result || [];
+  } catch (error) {
+    console.error('Error fetching restaurant gallery images:', error);
+    // Show the detailed error to help diagnose
+    console.error('Error details:', JSON.stringify(error, null, 2));
+    return [];
+  }
 }
 
 // Get restaurant menu items

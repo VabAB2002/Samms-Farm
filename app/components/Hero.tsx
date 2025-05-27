@@ -80,12 +80,14 @@ export default function Hero({ hero }: HeroProps) {
       {/* Content */}
       <div className="absolute inset-0 z-20 flex flex-col justify-center items-center text-center px-4">
         <div className="max-w-4xl animate-fade-up">
-          <h1 className="text-5xl md:text-7xl font-display font-medium text-cream-50 mb-6 leading-tight">
+          <h1 className="text-5xl md:text-7xl font-farm font-medium text-cream-50 mb-6 leading-tight tracking-wide
+            transform -rotate-1 drop-shadow-[0_3px_3px_rgba(0,0,0,0.3)]">
             {hero.headline}
           </h1>
           
           {hero.subHeadline && (
-            <p className="text-xl md:text-2xl text-cream-100 mb-10 leading-relaxed">
+            <p className="text-xl md:text-2xl font-sketchy text-cream-100 mb-10 leading-relaxed
+              transform rotate-[0.5deg] drop-shadow-[0_2px_2px_rgba(0,0,0,0.3)]">
               {hero.subHeadline}
             </p>
           )}

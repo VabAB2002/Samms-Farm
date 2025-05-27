@@ -51,7 +51,7 @@ export default function HomeTile({ tile, className = '' }: HomeTileProps) {
       ) : tile.media?.type === 'video' && tile.media.video ? (
         <div className="absolute inset-0 z-0">
           <video
-            src={urlFor(tile.media.video).url()}
+            src={`https://cdn.sanity.io/files/${process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || 'mfp8ghll'}/${process.env.NEXT_PUBLIC_SANITY_DATASET || 'production'}/${tile.media.video.asset._ref.replace('file-', '').replace('-mp4', '.mp4')}`}
             autoPlay
             muted
             loop
@@ -78,10 +78,10 @@ export default function HomeTile({ tile, className = '' }: HomeTileProps) {
       {/* Content */}
       <div className="absolute inset-0 z-20 flex flex-col justify-end p-6 text-cream-50">
         <div className={`transform transition-all duration-500 ${tile.hoverEffect === 'slideUp' ? 'group-hover:-translate-y-4' : ''}`}>
-          <h2 className="text-2xl font-display font-medium mb-2">{tile.title}</h2>
+          <h2 className="text-2xl font-farm font-medium mb-2 tracking-wide transform -rotate-[0.5deg] drop-shadow-[0_1px_1px_rgba(0,0,0,0.3)]">{tile.title}</h2>
           
           {tile.tagline && (
-            <p className="text-cream-100 text-sm mb-4 opacity-90">{tile.tagline}</p>
+            <p className="text-cream-100 text-sm mb-4 opacity-90 font-sketchy">{tile.tagline}</p>
           )}
           
           <div className="inline-flex items-center font-medium text-sm">

@@ -63,7 +63,7 @@ const Hero = ({ title = "Samm's Farm", subtitle = "Kitchen & Brewery", image }: 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-5xl md:text-7xl font-display font-medium text-white mb-4 text-center tracking-wide drop-shadow-lg"
+          className="text-5xl md:text-7xl font-farm font-medium text-white mb-4 text-center tracking-wide drop-shadow-lg transform -rotate-1"
         >
           {title}
         </motion.h1>
@@ -72,7 +72,7 @@ const Hero = ({ title = "Samm's Farm", subtitle = "Kitchen & Brewery", image }: 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-          className="text-xl md:text-3xl text-cream-100 tracking-wide text-center font-serif mb-6 drop-shadow-md"
+          className="text-xl md:text-3xl text-cream-100 tracking-wide text-center font-sketchy mb-6 drop-shadow-md transform rotate-[0.5deg]"
         >
           {subtitle}
         </motion.h2>
@@ -81,7 +81,7 @@ const Hero = ({ title = "Samm's Farm", subtitle = "Kitchen & Brewery", image }: 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-          className="max-w-xl mx-auto text-base md:text-lg text-cream-50/90 mb-10 font-sans drop-shadow text-shadow"
+          className="max-w-xl mx-auto text-base md:text-lg text-cream-50/90 mb-10 font-sketchy drop-shadow text-shadow"
         >
           A movement rooted in healing the land, building human connection, and sharing happiness through food and community.
         </motion.p>

@@ -10,6 +10,8 @@ module.exports = {
         sans: ['Inter', 'system-ui', 'sans-serif'],
         serif: ['Plus Jakarta Sans', 'Georgia', 'serif'],
         display: ['Plus Jakarta Sans', 'Georgia', 'serif'],
+        sketchy: ['var(--font-architects-daughter)', 'cursive'],
+        farm: ['var(--font-caveat)', 'cursive'],
         alt: ['Inter', 'system-ui', 'sans-serif'],
         body: ['Inter', 'system-ui', 'sans-serif']
       },

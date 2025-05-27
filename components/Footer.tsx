@@ -21,7 +21,7 @@ const Footer = () => {
               <Wheat size={24} className="text-cream-100" />
             </div>
             <div className="ml-3">
-              <h2 className="font-serif text-2xl font-medium text-cream-50">SAMM&apos;S</h2>
+              <h2 className="font-farm text-2xl font-medium text-cream-50 tracking-wide transform -rotate-1 drop-shadow-[0_2px_2px_rgba(0,0,0,0.3)]">SAMM&apos;S</h2>
               <p className="text-xs tracking-wider text-cream-100/60">EST. 1982</p>
             </div>
           </div>
@@ -134,7 +134,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center text-cream-100/60 text-xs">
           <div className="flex items-center mb-3 md:mb-0">
             <Heart size={12} className="text-terracotta-400/70 mr-1.5" />
-            <p>&copy; {currentYear} Samm&apos;s Farm. All rights reserved.</p>
+            <p>&copy; {currentYear} <span className="font-farm tracking-wide">Samm&apos;s Farm</span>. All rights reserved.</p>
           </div>
           <div className="flex space-x-6">
             <a href="#" className="hover:text-terracotta-300 transition-colors duration-300 text-xs">Privacy</a>

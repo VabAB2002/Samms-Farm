@@ -12,6 +12,8 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: siteSettings?.seoTitle || "Samm's Farm Kitchen & Brewery",
     description: siteSettings?.seoDescription || "Healing the Land, Nourishing People",
+    // Note: We can't apply custom font styling to metadata as it's used in browser tabs/search results
+    // The custom farm/sketchy styles will only apply to visible UI elements
     openGraph: {
       images: siteSettings?.ogImage ? [{
         url: `https://cdn.sanity.io/images/${process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}/${process.env.NEXT_PUBLIC_SANITY_DATASET}/${
