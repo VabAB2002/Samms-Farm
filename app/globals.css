@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+/* csslint ignore:start */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* csslint ignore:end */
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  body {
+    /* csslint ignore:start */
+    @apply bg-cream-50 text-brown-800 font-sans text-base leading-relaxed font-light;
+    /* csslint ignore:end */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23a68a64' fill-opacity='0.04' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+  }
+
+  /* Clean, minimalistic heading styles with refined spacing */
+  h1 {
+    /* csslint ignore:start */
+    @apply text-4xl md:text-5xl lg:text-6xl font-display font-medium leading-[1.1] tracking-tight;
+    /* csslint ignore:end */
+  }
+
+  h2 {
+    /* csslint ignore:start */
+    @apply text-3xl md:text-4xl lg:text-5xl font-display font-medium leading-[1.15] tracking-tight;
+    /* csslint ignore:end */
+  }
+
+  h3 {
+    /* csslint ignore:start */
+    @apply text-2xl md:text-3xl lg:text-4xl font-display font-medium leading-[1.2] tracking-tight;
+    /* csslint ignore:end */
+  }
+
+  h4 {
+    /* csslint ignore:start */
+    @apply text-xl md:text-2xl lg:text-3xl font-display font-medium leading-[1.25] tracking-tight;
+    /* csslint ignore:end */
+  }
+
+  h5 {
+    /* csslint ignore:start */
+    @apply text-lg md:text-xl font-sans font-medium leading-[1.3] tracking-normal;
+    /* csslint ignore:end */
+  }
+
+  h6 {
+    /* csslint ignore:start */
+    @apply text-base md:text-lg font-sans font-medium leading-[1.3] tracking-normal;
+    /* csslint ignore:end */
+  }
+
+  /* Clean, minimalistic paragraph style */
+  p {
+    /* csslint ignore:start */
+    @apply text-base leading-[1.7] font-sans tracking-tight font-light;
+    /* csslint ignore:end */
+  }
+
+  a {
+    /* csslint ignore:start */
+    @apply transition-all duration-300 font-sans font-light;
+    /* csslint ignore:end */
+  }
+  
+  ::selection {
+    /* csslint ignore:start */
+    @apply bg-terracotta-200 text-brown-800;
+    /* csslint ignore:end */
+  }
+}
+
+@layer components {
+  /* Standardized button base class with consistent dimensions and spacing */
+  .btn-standard {
+    /* csslint ignore:start */
+    @apply inline-flex items-center justify-center h-12 min-w-[160px] px-6 py-3 text-sm md:text-base font-normal tracking-normal text-center rounded-md shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-brown-600/25 focus:ring-offset-2 focus:ring-offset-cream-50;
+    /* csslint ignore:end */
+  }
+
+  /* Variant styles that extend the standard button with consistent styling */
+  .btn-primary {
+    /* csslint ignore:start */
+    @apply btn-standard bg-brown-700 text-white border border-transparent hover:bg-brown-800;
+    /* csslint ignore:end */
+  }
+
+  .btn-secondary {
+    /* csslint ignore:start */
+    @apply btn-standard bg-transparent border border-brown-400 text-brown-700 hover:bg-brown-50/50 hover:border-brown-500;
+    /* csslint ignore:end */
+  }
+  
+  .btn-accent {
+    /* csslint ignore:start */
+    @apply btn-standard bg-terracotta-500 text-white border border-transparent hover:bg-terracotta-600;
+    /* csslint ignore:end */
+  }
+  
+  /* Button for transparent backgrounds (e.g., on images) */
+  .btn-light {
+    /* csslint ignore:start */
+    @apply btn-standard bg-white/10 backdrop-blur-sm text-white border border-white/20 hover:bg-white/20 hover:border-white/30;
+    /* csslint ignore:end */
+  }
+
+  .section-header {
+    @apply text-3xl md:text-4xl font-display font-medium text-center mb-12 text-brown-800 relative leading-tight tracking-tight;
+  }
+
+  .section-header::after {
+    content: '';
+    /* csslint ignore:start */
+    @apply absolute left-1/2 -bottom-4 w-16 h-0.5 bg-terracotta-400 transform -translate-x-1/2 rounded-full;
+    /* csslint ignore:end */
+  }
+
+  .card-modern {
+    /* csslint ignore:start */
+    @apply bg-white rounded-lg shadow-sm hover:shadow-md transform transition-all duration-300 hover:-translate-y-1 overflow-hidden border border-cream-200;
+    /* csslint ignore:end */
+  }
+
+  .overlay-gradient {
+    /* csslint ignore:start */
+    @apply absolute inset-0 bg-gradient-to-t from-brown-900/50 to-brown-800/10;
+    /* csslint ignore:end */
+  }
+
+  .texture-overlay {
+    /* csslint ignore:start */
+    @apply absolute inset-0 bg-grain opacity-10 mix-blend-overlay pointer-events-none;
+    /* csslint ignore:end */
+  }
+  
+  .glass-effect {
+    /* csslint ignore:start */
+    @apply backdrop-blur-sm bg-white/30 border border-white/20;
+    /* csslint ignore:end */
+  }
+  
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  
+  .text-shadow-lg {
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  }
+}
