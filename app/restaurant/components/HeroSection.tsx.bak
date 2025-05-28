@@ -1,0 +1,202 @@
+"use client";
+
+import React, { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { FaUtensils, FaCalendarAlt } from 'react-icons/fa';
+import SanityImage from '@/components/media/SanityImage';
+import { MediaAsset } from '@/lib/sanity/api/media';
+
+interface HeroSectionProps {
+  heroVideo: MediaAsset | undefined;
+  heroImage: MediaAsset | undefined;
+}
+
+export default function HeroSection({
+  heroVideo,
+  heroImage
+}: HeroSectionProps) {
+  // Create state for gallery visibility
+  const [showGallery, setShowGallery] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  
+  // Sample gallery images for testing - in production, use Sanity data
+  const galleryImages = [
+    {
+      title: 'Restaurant View',
+      alt: 'A beautiful view of our restaurant interior',
+      color: 'bg-terracotta-500'
+    },
+    {
+      title: 'Farm Fresh',
+      alt: 'Fresh produce from our farm',
+      color: 'bg-moss-600'
+    },
+    {
+      title: 'Dining Experience',
+      alt: 'Guests enjoying our farm-to-table dining experience',
+      color: 'bg-brown-700'
+    }
+  ];
+  
+  // Log to debug
+  console.log('HeroSection rendering, gallery visible:', showGallery);
+
+  // Start gallery transition after 5 seconds (for testing)
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      console.log('HeroSection: Showing gallery transition');
+      setShowGallery(true);
+    }, 5000);
+    
+    return () => clearTimeout(timer);
+  }, []);
+  
+  // Rotate gallery images every 4 seconds
+  useEffect(() => {
+    if (!showGallery) return;
+    
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev: number) => (prev + 1) % galleryImages.length);
+      console.log('HeroSection: Switching to gallery image', (currentImageIndex + 1) % galleryImages.length + 1);
+    }, 4000);
+    
+    return () => clearInterval(interval);
+  }, [showGallery, currentImageIndex, galleryImages.length]);
+  
+  return (
+    <div className="relative h-[70vh] mb-20 rounded-lg overflow-hidden shadow-rustic-lg">
+      {/* Video or Initial Image */}
+      <div className="absolute inset-0 w-full h-full">
+        {!showGallery && heroVideo && (
+          <div className="w-full h-full">
+            <video
+              ref={videoRef}
+              src={heroVideo.videoUrl || (heroVideo.video ? heroVideo.video.asset.url : '/videos/restaurant-bg.mp4')}
+              poster={heroVideo.image ? heroVideo.image.asset.url : undefined}
+              autoPlay={true}
+              loop={false}
+              muted={true}
+              playsInline={true}
+              className="w-full h-full object-cover"
+              onEnded={() => {
+                console.log('Video ended event triggered');
+                setShowGallery(true);
+              }}
+            />
+          </div>
+        )}
+        
+        {!showGallery && !heroVideo && heroImage && (
+          <SanityImage 
+            image={heroImage.image} 
+            alt={heroImage?.altText || "Farm to table experience"} 
+            fill
+            className="w-full h-full object-cover"
+          />
+        )}
+        
+        {/* Gallery Images */}
+        {showGallery && (
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentImageIndex}
+              className={`absolute inset-0 ${galleryImages[currentImageIndex].color} flex items-center justify-center`}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <div className="relative w-full h-full">
+                <div className="absolute inset-0 bg-black/40"></div>
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <h2 className="text-4xl text-white font-bold">{galleryImages[currentImageIndex].title}</h2>
+                </div>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+        )}
+      </div>
+      ) : heroImage ? (
+        <SanityImage 
+          image={heroImage.image} 
+          alt={heroImage.altText || "Farm to table experience"} 
+          fill
+          className="w-full h-full object-cover"
+        />
+      ) : (
+        <video 
+          src="/videos/restaurant-bg.mp4" 
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover"
+        />
+      )}
+      <div className="absolute inset-0 bg-gradient-to-t from-brown-800/70 to-transparent flex flex-col justify-end p-8 md:p-12">
+        <motion.div 
+          className="max-w-2xl"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+        >
+          <motion.h1 
+            className="text-5xl md:text-6xl font-display font-medium text-cream-50 mb-4 leading-tight"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+          >
+            <motion.span
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+            >
+              Healing the Land,
+            </motion.span>
+            <br />
+            <motion.span 
+              className="text-terracotta-400"
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
+            >
+              Nourishing People
+            </motion.span>
+          </motion.h1>
+          <motion.p 
+            className="text-xl text-cream-100 mb-8 leading-relaxed"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1.1 }}
+          >
+            A farm-to-table journey of family, happiness, and connection
+          </motion.p>
+          <motion.div 
+            className="flex flex-wrap gap-4"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1.4 }}
+          >
+            <motion.a 
+              href="#menu" 
+              className="px-6 py-3 bg-terracotta-500 text-cream-50 rounded-lg hover:bg-terracotta-600 transition-all shadow-rustic transform hover:scale-105 duration-300 flex items-center gap-2"
+              whileHover={{ scale: 1.05, backgroundColor: "#c4462e" }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <FaUtensils /> Explore Our Menu
+            </motion.a>
+            <motion.a 
+              href="#reservation" 
+              className="px-6 py-3 border-2 border-moss-500 text-cream-50 rounded-lg hover:bg-moss-500/20 transition-all flex items-center gap-2"
+              whileHover={{ scale: 1.05, backgroundColor: "rgba(99, 138, 86, 0.2)" }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <FaCalendarAlt /> Reserve a Table
+            </motion.a>
+          </motion.div>
+        </motion.div>
+      </div>
+    </div>
+  );
+}

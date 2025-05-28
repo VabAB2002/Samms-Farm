@@ -36,9 +36,9 @@ export async function getRestaurantMedia() {
 
 // Get restaurant gallery images
 export async function getRestaurantGalleryImages(): Promise<RestaurantGalleryImage[]> {
-  // Simplified query to test basic functionality
+  // Improved query with sorting by order field
   const query = `
-    *[_type == "restaurantGalleryImage"] {
+    *[_type == "restaurantGalleryImage"] | order(order asc) {
       _id,
       image,
       alt,
@@ -49,7 +49,12 @@ export async function getRestaurantGalleryImages(): Promise<RestaurantGalleryIma
   
   try {
     console.log('Fetching restaurant gallery images with query:', query);
-    const result = await sanityClient.fetch(query); // Using direct client instead of safeFetch
+    // Use the sanityClient with a cache-busting parameter
+    const result = await sanityClient.fetch(
+      query,
+      {},
+      { cache: 'no-store' } // This disables caching for this specific query
+    );
     console.log('Restaurant gallery images result:', result);
     return result || [];
   } catch (error) {

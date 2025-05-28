@@ -1,6 +1,7 @@
 "use client";
 
-import { Instagram, Facebook, Twitter, Mail, MapPin, Phone, Wheat, Heart } from 'lucide-react';
+import { Instagram, Mail, MapPin, Phone, Wheat, Heart } from 'lucide-react';
+import Link from 'next/link';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -36,27 +37,20 @@ const Footer = () => {
             <h3 className="text-sm uppercase tracking-wider font-medium text-cream-50 mb-3 pb-1 border-b border-brown-600/50">
               About Us
             </h3>
-            <p className="mb-3 text-cream-100/70 text-sm leading-relaxed">
+            <p className="mb-4 text-cream-100/70 text-sm leading-relaxed">
               A family-owned farm and restaurant dedicated to sustainable practices that connect people with the land.
             </p>
-            <div className="flex space-x-3">
+            <div className="flex items-center space-x-2">
+              <span className="text-sm text-cream-100/60">Follow us:</span>
               <a 
-                href="#" 
-                className="p-1.5 rounded-full bg-brown-600/40 text-cream-100/70 hover:text-terracotta-300 hover:bg-brown-600/60 transition-all duration-300 transform hover:-translate-y-1"
+                href="https://instagram.com/sammsfarm" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-brown-600/40 text-cream-100/90 hover:text-terracotta-300 hover:bg-brown-600/60 transition-all duration-300 transform hover:-translate-y-0.5 hover:shadow-md"
+                aria-label="Follow us on Instagram"
+                title="Follow us on Instagram"
               >
                 <Instagram size={16} />
-              </a>
-              <a 
-                href="#" 
-                className="p-1.5 rounded-full bg-brown-600/40 text-cream-100/70 hover:text-terracotta-300 hover:bg-brown-600/60 transition-all duration-300 transform hover:-translate-y-1"
-              >
-                <Facebook size={16} />
-              </a>
-              <a 
-                href="#" 
-                className="p-1.5 rounded-full bg-brown-600/40 text-cream-100/70 hover:text-terracotta-300 hover:bg-brown-600/60 transition-all duration-300 transform hover:-translate-y-1"
-              >
-                <Twitter size={16} />
               </a>
             </div>
           </div>
@@ -67,15 +61,21 @@ const Footer = () => {
               Quick Links
             </h3>
             <ul className="space-y-1.5 text-sm">
-              {['Restaurant', 'Farm', 'Resort', 'Shop', 'Blog'].map((item) => (
-                <li key={item}>
-                  <a 
-                    href={`#${item.toLowerCase()}`}
+              {[
+                { name: 'Restaurant', path: '/restaurant' },
+                { name: 'Farm', path: '/farm' },
+                { name: 'Resort', path: '/resort' },
+                { name: 'Shop', path: '/shop' },
+                { name: 'Blog', path: '/blog' }
+              ].map(({ name, path }) => (
+                <li key={name}>
+                  <Link 
+                    href={path}
                     className="text-cream-100/70 hover:text-terracotta-300 transition-all duration-300 flex items-center group"
                   >
                     <span className="w-0 h-[1px] bg-terracotta-400 mr-0 group-hover:w-3 group-hover:mr-1.5 transition-all duration-300"></span>
-                    {item}
-                  </a>
+                    {name}
+                  </Link>
                 </li>
               ))}
             </ul>

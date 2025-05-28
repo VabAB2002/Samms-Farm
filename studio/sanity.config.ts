@@ -85,6 +85,7 @@ export default defineConfig({
                 S.list()
                   .title('Restaurant')
                   .items([
+                    S.documentTypeListItem('menuItem').title('Menu Items'),
                     S.documentTypeListItem('restaurantGalleryImage').title('Gallery Images'),
                     // Add other restaurant-related document types here in the future
                   ])

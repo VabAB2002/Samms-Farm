@@ -39,24 +39,34 @@ export default async function Home() {
     <div className="min-h-screen bg-cream-50 relative overflow-hidden">
       {/* Subtle grain texture overlay for entire page */}
       <div className="fixed inset-0 bg-grain opacity-[0.07] pointer-events-none z-[1] mix-blend-overlay"></div>
+      
+      {/* Subtle color blobs for depth */}
+      <div className="fixed top-[-20%] left-[-10%] w-[60%] h-[60%] bg-terracotta-500/[0.02] rounded-full blur-[100px] pointer-events-none"></div>
+      <div className="fixed bottom-[-30%] right-[-20%] w-[80%] h-[80%] bg-moss-600/[0.02] rounded-full blur-[120px] pointer-events-none"></div>
+      <div className="fixed top-[40%] right-[5%] w-[30%] h-[30%] bg-brown-500/[0.01] rounded-full blur-[70px] pointer-events-none"></div>
+      
       <Header />
       <main className="relative z-[2]">
         {/* Hero Section */}
         {hero && <Hero hero={hero} />}
         
         {/* Tiles Section - 3-over-2 Layout */}
-        <section className="w-full overflow-hidden m-0 p-0">
+        <section className="w-full overflow-hidden">
           {/* Top Row - 3 Tiles */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-0 mb-0 m-0 p-0">
-            {topRowTiles.map((tile) => (
-              <HomeTile key={tile._id} tile={tile} />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-0">
+            {topRowTiles.map((tile, index) => (
+              <div key={tile._id} className="overflow-hidden" style={{ animationDelay: `${index * 0.15}s` }}>
+                <HomeTile tile={tile} />
+              </div>
             ))}
           </div>
           
           {/* Bottom Row - 2 Tiles */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-0 m-0 p-0">
-            {bottomRowTiles.map((tile) => (
-              <HomeTile key={tile._id} tile={tile} className="md:aspect-[16/9]" />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
+            {bottomRowTiles.map((tile, index) => (
+              <div key={tile._id} className="overflow-hidden" style={{ animationDelay: `${(index + 3) * 0.15}s` }}>
+                <HomeTile tile={tile} className="md:aspect-[16/9]" />
+              </div>
             ))}
           </div>
         </section>

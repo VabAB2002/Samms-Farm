@@ -1,0 +1,295 @@
+{
+  "menu": [
+    {
+      "section": "Beverage Menu",
+      "description": "Crafted with care, straight from our farm to your table. At SammsFarm, we take pride in serving beverages made with the freshest ingredients, sourced directly from our plantations in Bali. Our coffee is brewed using the traditional hot sand method, ensuring a rich and unique flavor. Herbal teas and mixed blends are handpicked from our farm, while our juices are always made fresh to preserve their natural goodness.",
+      "categories": [
+        {
+          "title": "Coffee",
+          "items": [
+            {
+              "name": "Black Coffee",
+              "description": "Rich and bold, brewed with coffee beans from our Bali plantation using the hot sand method.",
+              "price": "35K"
+            },
+            {
+              "name": "Red Wine Coffee",
+              "description": "A unique infusion of wine aroma with smooth black coffee.",
+              "price": "35K"
+            },
+            {
+              "name": "Specialty Coffee",
+              "description": "Curated single-origin coffee, expertly brewed.",
+              "price": "40K"
+            },
+            {
+              "name": "Luwak Coffee",
+              "description": "Exquisite and rare civet coffee for a luxurious experience.",
+              "price": "75K"
+            },
+            {
+              "name": "Manual Brew",
+              "description": "Choose your style: Hand Drip V60, Hand Drip Flat, Bottom French Press.",
+              "price": "35K"
+            }
+          ],
+          "options": [
+            {
+              "group": "Add Milk",
+              "choices": [
+                { "name": "Almond Milk", "price": "+10K" },
+                { "name": "Coconut Milk", "price": "+10K" },
+                { "name": "Oat Milk", "price": "+10K" },
+                { "name": "Fresh Milk", "price": "+10K" },
+                { "name": "Extra Shot", "price": "+10K" }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Milk Based Coffee",
+          "basePrice": "55K",
+          "items": [
+            { "name": "Authentic Es Kopi Susu", "description": "Traditional Indonesian-style iced coffee with milk.", "price": "30K" },
+            { "name": "Kopi Susu Panas", "description": "A warm and comforting coffee-milk blend.", "price": "28K" },
+            { "name": "Cafe Latte", "description": "Smooth and creamy with a perfect espresso shot.", "price": "40K" },
+            { "name": "Cappuccino", "variants": [ { "name": "Small", "price": "33K" }, { "name": "Large", "price": "40K" } ] },
+            { "name": "Flat White", "description": "Velvety smooth with a double shot of espresso.", "price": "45K" },
+            { "name": "Mochaccino", "description": "A rich combination of espresso and chocolate.", "price": "40K" },
+            { "name": "Caramel Macchiato", "description": "Espresso layered with caramel and steamed milk.", "price": "40K" },
+            { "name": "Hazelnut Macchiato", "description": "A nutty, aromatic treat with espresso and steamed milk.", "price": "40K" },
+            { "name": "Matcha Latte", "description": "Earthy and creamy, made with premium matcha.", "price": "45K" },
+            { "name": "Golden Booster", "description": "Almond milk + turmeric + honey + cinnamon.", "price": "40K" }
+          ]
+        },
+        {
+          "title": "Samm's Signature Brews",
+          "items": [
+            { "name": "Samm's Summer Coffee", "description": "A refreshing twist on coffee, served chilled.", "price": "45K" },
+            { "name": "Black Tonic Coffee", "description": "A fizzy, energizing mix of coffee and tonic water.", "price": "40K" },
+            { "name": "Coffee Beer", "description": "An innovative blend of coffee and beer flavors.", "price": "70K" },
+            { "name": "Whiskey Coffee", "description": "Bold coffee infused with a touch of whiskey.", "price": "75K" }
+          ]
+        },
+        {
+          "title": "Signature Sampler Brews",
+          "description": "Experience the best of our innovative coffee creations with this sampler set, featuring three signature drinks in smaller servings.",
+          "price": "90K",
+          "items": [
+            { "name": "Coffee Beer", "description": "An adventurous fusion of coffee and beer for a bold and refreshing taste." },
+            { "name": "Whiskey Coffee", "description": "Rich and aromatic coffee infused with the smooth warmth of whiskey." },
+            { "name": "Red Wine Coffee", "description": "A unique blend of coffee and red wine, offering a sophisticated flavor profile." }
+          ]
+        },
+        {
+          "title": "Health Drinks",
+          "items": [
+            { "name": "Samm's Homemade Kombucha", "description": "Fermented tea with probiotic benefits.", "price": "50K" },
+            { "name": "Mango Kombucha", "description": "A tropical twist on our classic kombucha.", "price": "60K" },
+            { "name": "High Immune Turmeric Orange", "description": "A zesty immunity-boosting blend with turmeric and orange.", "price": "50K" }
+          ]
+        }
+      ]
+    },
+    {
+      "section": "All Day Menu",
+      "description": "Fresh. Local. Delicious. At SammsFarm, we craft every dish with the freshest ingredients sourced directly from our farms.",
+      "categories": [
+        {
+          "title": "Indonesian Delights",
+          "items": [
+            { "name": "Nasi Goreng", "description": "Fragrant fried rice with chicken, carrots, and crackers.", "price": "60K" },
+            { "name": "Mie Goreng", "description": "Wok-fried noodles with chicken and vegetables.", "price": "60K" },
+            { "name": "Beef Rendang", "description": "Slow-cooked beef in aromatic spices with steamed rice.", "price": "85K" }
+          ]
+        },
+        {
+          "title": "Wood Fire Creations",
+          "items": [
+            { "name": "Smoked Beef Brisket", "description": "Served with sourdough, coleslaw, broccoli, potato chips, and BBQ sauce.", "price": "90K" },
+            { "name": "Buttermilk Chicken Wrap", "description": "Tandoori yogurt-marinated chicken with papaya chutney and flatbread.", "price": "90K" },
+            { "name": "Ham and Cheese", "description": "Toasted sourdough with cheddar cheese, grilled chicken, ham, eggs, mustard, and BBQ sauce served with fries.", "price": "90K" },
+            { "name": "Norwegian Salmon", "description": "Paired with truffle mashed potatoes, avocado lemon butter, and vegetables.", "price": "140K" },
+            { "name": "Ruben Sandwich", "description": "Wheat bread stuffed with brisket, onion, cheese, BBQ sauce, fries, and onion rings served with potato chips.", "price": "90K" },
+            { "name": "Samm's Burger", "description": "Beef patty, egg, cheese, bacon, and BBQ sauce served with fries.", "price": "75K" }
+          ]
+        },
+        {
+          "title": "Rice Specialties",
+          "items": [
+            { "name": "Beef Black Pepper", "description": "Beef shortplate with rice, eggs, onions, bell peppers, and coleslaw.", "price": "75K" },
+            { "name": "Chicken Curry", "description": "With rice, eggs, carrots, potatoes, pickles, and broccoli.", "price": "70K" },
+            { "name": "Snapper Butter Garlic", "description": "Red snapper served with rice, butter garlic sauce, and chimichurri.", "price": "65K" }
+          ]
+        },
+        {
+          "title": "Pizza & Pasta Specialty",
+          "items": [
+            { "name": "Gnocchi alla Sorrentina", "description": "Potato dumplings in a rich tomato-basil sauce with burrata cream.", "price": "90K" },
+            { "name": "Spaghetti alla Carbonara", "description": "Creamy pasta with pancetta, Parmesan, and egg.", "price": "110K" },
+            { "name": "Lasagna alla Bolognese", "description": "Beef ragù, béchamel, Parmesan, and mozzarella.", "price": "90K" },
+            { "name": "Margherita Pizza", "description": "Mozzarella, tomato sauce, and fresh basil.", "price": "70K" },
+            { "name": "Salami Pizza", "description": "Beef salami, mozzarella, oregano, and tomato sauce.", "price": "99K" },
+            { "name": "Spicy Hawaiian Pizza", "description": "Chicken, pineapple, onion, tomato sauce, mozzarella, and dill leaf.", "price": "95K" }
+          ]
+        },
+        {
+          "title": "Smoothie Bowls",
+          "items": [
+            {
+              "name": "Smoothie Bowl",
+              "description": "Choose your base (max 3 items): Mango, Banana, Avocado, Pineapple, Strawberry, Dragon Fruit. Mix it (max 1 item): Plain Yogurt, Almond Milk, Coconut Milk. Add toppings (max 3 items): Mango Fruit, Banana Fruit, Strawberry Fruit, Granola, Roasted Coconut, Oats.",
+              "price": "70K"
+            }
+          ]
+        },
+        {
+          "title": "Sweet Ending",
+          "items": [
+            { "name": "Sweet Fruits Flatbread", "description": "Topped with banana, strawberry, kiwi, blackberry and Nutella.", "price": "55K" },
+            { "name": "Chocolate Flatbread", "description": "Chocolate spread, cheese, hazelnuts, and banana.", "price": "60K" },
+            { "name": "Tiramisu", "description": "Classic Italian dessert with mascarpone and cocoa.", "price": "55K" },
+            { "name": "Panna Cotta", "description": "Silky panna cotta infused with matcha.", "price": "55K" },
+            { "name": "Seasonal Fruit Platter", "description": "A selection of fresh, locally sourced fruits.", "price": "40K" },
+            { "name": "Simply Ice Cream", "description": "Served in a cup with roasted almonds.", "price": "30K" }
+          ]
+        }
+      ]
+    },
+    {
+      "section": "Dinner Menu",
+      "categories": [
+        {
+          "title": "Tapas",
+          "description": "A selection of Indonesian-inspired small plates, perfect for sharing or savoring on your own.",
+          "items": [
+            { "name": "Tempe Mendoan (2 pcs)", "description": "Crispy, golden-fried Javanese-style tempeh, crunchy outside, soft inside.", "price": "30K" },
+            { "name": "Perkedel Jagung (3 pcs)", "description": "Crispy corn fritters with a perfect blend of sweetness and aromatic spices.", "price": "30K" },
+            { "name": "Vegetarian Spring Roll (3 pcs)", "description": "Crispy vegetable rolls served with our special dipping sauce.", "price": "40K" },
+            { "name": "Gado-Gado Roll", "description": "Indonesia's signature salad rolled like sushi, served with creamy peanut sauce.", "price": "45K" },
+            { "name": "Indonesian Tacos (Beef/Chicken)", "description": "Soft pita bread filled with spiced beef or chicken, inspired by martabak flavors.", "price": "50K" },
+            { "name": "Croquette Rendang", "description": "Crispy croquette stuffed with rich, tender rendang and spiced spinach.", "price": "60K" },
+            { "name": "Chicken Satay", "description": "Juicy grilled chicken skewers served with a velvety peanut sauce.", "price": "50K" },
+            { "name": "Indonesian Ratatouille", "description": "Roasted eggplant paired with spicy sambal hijau for a bold, smoky flavor.", "price": "50K" }
+          ]
+        },
+        {
+          "title": "Mains",
+          "description": "Comforting Indonesian classics and bold flavors, crafted with tradition and innovation.",
+          "items": [
+            { "name": "Nasi Ijo Vegetarian", "description": "Aromatic green rice with sweet tempeh, crispy corn fritters, and tender eggplant.", "price": "85K" },
+            { "name": "Nasi Liwet", "description": "Coconut-infused rice with spicy balado fish, crispy potatoes, and fresh greens.", "price": "90K" },
+            { "name": "Soto Ayam", "description": "A comforting turmeric chicken soup with noodles, eggs, and crispy shallots.", "price": "70K" },
+            { "name": "Pumpkin Soup Nusantara", "description": "Creamy roasted pumpkin soup with a touch of Indonesian spices.", "price": "65K" },
+            { "name": "Mie Goreng", "description": "Classic Indonesian fried noodles with vegetables and your choice of chicken or seafood.", "price": "60K" },
+            { "name": "Nasi Goreng Kampung", "description": "Smoky, flavorful fried rice served with an omelet and crispy crackers.", "price": "60K" },
+            { "name": "Grill Tuna Tataki Sambal Matah", "description": "Seared tuna with a spicy sambal matah topping, served with warm rice.", "price": "100K" }
+          ]
+        }
+      ]
+    },
+    {
+      "section": "Beverage & Dessert Menu",
+      "categories": [
+        {
+          "title": "Mocktails",
+          "items": [
+            { "name": "Cucumber Maki", "description": "Japanese cucumber + lime fruit + ginger fruit + soda.", "price": "55K" },
+            { "name": "Jitter Bug", "description": "Strawberry syrup + raspberry syrup + blueberry jam + ginger + soda + lime.", "price": "55K" },
+            { "name": "Bali Dream", "description": "Mango juice + orange juice + fresh milk + honey.", "price": "55K" },
+            { "name": "The Grass", "description": "Lychee fruit + lime + mint leaf + white sugar.", "price": "55K" },
+            { "name": "Monkey Business", "description": "Nutella + banana + fresh milk + sun kara + white sugar.", "price": "55K" },
+            { "name": "Virgin Mojito", "description": "Lime + simple syrup + mint leaves + mint syrup + soda.", "price": "55K" },
+            { "name": "Italian Soda", "description": "Choose from: Strawberry, Passion Fruit, Kiwi, Lychee.", "price": "55K" }
+          ]
+        },
+        {
+          "title": "Fresh Drinks",
+          "items": [
+            { "name": "House Sparkling Water", "price": "30K" },
+            { "name": "Coca Cola | Sprite | Coca Cola Zero", "price": "25K" },
+            { "name": "Bintang Beer", "price": "40K" },
+            { "name": "Fresh Coconut", "price": "35K" }
+          ]
+        },
+        {
+          "title": "Desserts",
+          "items": [
+            { "name": "Salad Buah Tropis", "description": "A fresh tropical fruit salad with a sweet and tangy house dressing.", "price": "45K" },
+            { "name": "Crumb Sale", "description": "A crunchy banana crumble, reimagining the classic sale pisang.", "price": "50K" },
+            { "name": "Brule Sweet Potato", "description": "Caramelized sweet potato with a crispy brûlée-style sugar crust.", "price": "55K" }
+          ]
+        }
+      ]
+    },
+    {
+      "section": "Drink Selection",
+      "categories": [
+        {
+          "title": "Samm's Signature Brews",
+          "items": [
+            { "name": "Coffee Beer", "description": "An innovative blend of coffee and beer flavors.", "price": "80K" },
+            { "name": "Whiskey Coffee", "description": "Bold coffee infused with a touch of whiskey.", "price": "80K" },
+            { "name": "Selendang Mayang", "description": "A traditional dessert turned into a refreshing, chewy coconut drink.", "price": "60K" }
+          ]
+        },
+        {
+          "title": "Wine by the Glass",
+          "description": "Ask our team about our selection of red, rosé, and white wines.",
+          "price": "95K"
+        },
+        {
+          "title": "Cocktails",
+          "price": "150K",
+          "items": [
+            { "name": "Lychee Martini", "description": "Smirnoff Vodka + Vibe Triple Sec + Lychee Syrup + Lime Juice." },
+            { "name": "Classic Margarita", "description": "Jose Cuervo Tequila + Vibe Triple Sec + Lime + White Sugar." },
+            { "name": "Cosmopolitan", "description": "Smirnoff Vodka + Vibe Triple Sec + Cranberry Juice + Lime." },
+            { "name": "Long Island Iced Tea", "description": "Gordon Dry Gin + Smirnoff Vodka + Captain Morgan White Rum + Jose Cuervo Tequila + Vibe Triple Sec + Lime + Coke." },
+            { "name": "Midori Illusion", "description": "Smirnoff Vodka + Vibe Triple Sec + Midori Melon + Pineapple Juice + Lime." },
+            { "name": "Negroni", "description": "Gin + Aperol + Sweet Vermouth." },
+            { "name": "Espresso Martini", "description": "Vodka + Espresso + Simple Syrup." },
+            { "name": "Mojito", "description": "Rum + Lime + Simple Syrup + Mint Leaves + Mint Syrup + Soda." }
+          ]
+        },
+        {
+          "title": "Signature Cocktails",
+          "price": "150K",
+          "items": [
+            { "name": "Eleanor", "description": "Vodka + Strawberry + Kiwi + Lime Squeeze + Strawberry Syrup + Kiwi Syrup." },
+            { "name": "Gin Spritz", "description": "Gin + Orange Slice + Sparkling Wine + Soda." },
+            { "name": "Touch n' Go", "description": "Vodka + Kiwi + Lime + Simple Syrup." },
+            { "name": "Once Punch", "description": "Gin + Triple Sec + Mango Chilled Juice + Mango Fruit + Lime + Simple Syrup." },
+            { "name": "Halmahera", "description": "Vodka + Triple Sec + Cranberry Juice + Blueberry Jam + Lychee + Ginger." },
+            { "name": "59 Padang Linjong", "description": "White Rum + Triple Sec + Lemon Squeeze + Simple Syrup + Black Tea." }
+          ]
+        },
+        {
+          "title": "Classic Single Mixes",
+          "price": "120K",
+          "items": [
+            { "name": "Vodka + mix" },
+            { "name": "Gin + mix" },
+            { "name": "Rum + mix" },
+            { "name": "Tequila + mix" },
+            { "name": "Whiskey + mix" }
+          ],
+          "options": {
+            "Choose your mixer": ["Soda", "Coke", "Cranberry Juice", "Orange Juice", "Lime Juice", "Sprite", "Pineapple Juice"]
+          }
+        },
+        {
+          "title": "Single Shot Selection",
+          "price": "85K",
+          "items": [
+            { "name": "Vodka" },
+            { "name": "Gin" },
+            { "name": "Rum" },
+            { "name": "Tequila" },
+            { "name": "Whiskey" }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -13,6 +13,7 @@ import menuPdf from './menuPdf'
 import product from './product'
 import mediaAsset from './mediaAsset'
 import restaurantGalleryImage from './restaurantGalleryImage'
+import menuItem from './menuItem'
 
 export const schemaTypes = [
   // Core types
@@ -30,6 +31,7 @@ export const schemaTypes = [
   // Events and menus
   event,
   menuPdf,
+  menuItem,
   
   // Shop and media
   product,
